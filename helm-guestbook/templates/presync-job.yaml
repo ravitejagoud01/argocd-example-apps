@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: presync-job
+  annotations:
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/hook-delete-policy: BeforeHookCreation,HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - name: busybox
+          image: busybox
+          command:
+            - /bin/bash
+            - -c
+          args:
+            - |
+              echo "Running Database migrations..."
+              sleep 10
+      restartPolicy: Never
