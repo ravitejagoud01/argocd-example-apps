@@ -12,7 +12,7 @@ spec:
         - name: busybox
           image: busybox
           command:
-            - /bin/bash
+            - /bin/sh
             - -c
           args:
             - |
