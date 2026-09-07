@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-config
+  annotations:
+    argocd.argoproj.io/sync-wave: "1"
+data:
+  environment: "test"
+  message: "Hello from ConfigMap"
+  version: "1.0"
